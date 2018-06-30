@@ -28,6 +28,6 @@ public class KafkaSender {
         message.setMsg(UUID.randomUUID().toString());
         message.setSendTime(new Date());
         log.info("+++++++++++++++++++++  message = {}", gson.toJson(message));
-        kafkaTemplate.send("Franch", gson.toJson(message));
+        kafkaTemplate.send("ILoveYou", gson.toJson(message));
     }
 }

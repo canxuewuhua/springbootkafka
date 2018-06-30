@@ -1,0 +1,18 @@
+先启动zookeeper
+在zookeeper的bin目录下，启动zookeeper，./zkServer.sh start
+
+后台启动kafka:
+./kafka-server-start.sh ../config/server.properties 1>/dev/null 2>&1 &
+
+
+kafka命令：
+1、创建主题
+./kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+2、查看主题
+./kafka-topics.sh --list --zookeeper localhost:2181
+3、服务提供者发送消息
+./kafka-console-producer.sh --broker-list 192.168.199.239:9092 --topic test
+如：发送This is a message
+4、消费者接收消息
+./kafka-console-consumer.sh --bootstrap-server 192.168.199.239:9092 --topic test --from-beginning
+如：This is a message
