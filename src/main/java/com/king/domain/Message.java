@@ -1,4 +1,4 @@
-package com.dragon.domain;
+package com.king.domain;
 
 import lombok.Data;
 

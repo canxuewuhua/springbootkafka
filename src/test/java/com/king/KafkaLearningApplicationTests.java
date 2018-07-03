@@ -1,4 +1,4 @@
-package com.dragon;
+package com.king;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

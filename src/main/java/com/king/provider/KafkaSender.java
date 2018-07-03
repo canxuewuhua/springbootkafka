@@ -1,6 +1,6 @@
-package com.dragon.provider;
+package com.king.provider;
 
-import com.dragon.domain.Message;
+import com.king.domain.Message;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.extern.slf4j.Slf4j;
