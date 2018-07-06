@@ -1,0 +1,41 @@
+SpringBoot Kafka 整合使用
+https://blog.csdn.net/tzs_1041218129/article/details/78988439
+
+@Component
+@Slf4j
+public class KafkaSender {
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
+
+    private Gson gson = new GsonBuilder().create();
+    //发送消息方法
+    public void send() {
+        Message message = new Message();
+        message.setId(System.currentTimeMillis());
+        message.setMsg(UUID.randomUUID().toString());
+        message.setSendTime(new Date());
+        message.setFlag("pppppppppQQQQQQQQQQQQQQQQQQQ222222");
+        log.info("+++++++++++++++++++++  message = {}", gson.toJson(message));
+        kafkaTemplate.send("SSHKEY", gson.toJson(message));
+    }
+}
+
+@Component
+@Slf4j
+public class KafkaReceiver {
+
+    @KafkaListener(topics = {"SSHKEY"})
+    public void listen(ConsumerRecord<?, ?> record) {
+
+        Optional<?> kafkaMessage = Optional.ofNullable(record.value());
+
+        if (kafkaMessage.isPresent()) {
+
+            Object message = kafkaMessage.get();
+
+            log.info("----------------- record =" + record);
+            log.info("------------------ message =" + message);
+        }
+
+    }
+}

@@ -53,8 +53,6 @@ public class PushMessageService {
     }
 
     private void exec(String mess) {
-
-
         HashMap<String, String> param = new HashMap<>();
         param.put("mess", mess);
         logger.info("push kafka message to " + role + " --> " + mess);
