@@ -23,7 +23,7 @@ public class KafkaServiceImpl implements KafkaService{
     @Override
     public void sendKafkaLog() {
         if(SEND_FLAG.equals("1")){
-            pushMessageToKafka("Hello,北京时间："+ new Date());
+            pushMessageToKafka("世界杯：Hello："+ new Date());
         }
     }
 
