@@ -12,9 +12,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/**
- * Created by ZHUYONGQIANG on 2018/7/3.
- */
 @Service("pushMessageService")
 public class PushMessageService {
     private Logger logger = LoggerFactory.getLogger(PushMessageService.class);

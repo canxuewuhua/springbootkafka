@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author yongqiang.zhu
- * @date 2019/3/31 22:44
  */
 @Component
 @Slf4j

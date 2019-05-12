@@ -9,7 +9,7 @@
 # 在本地linux虚拟机上安装好kafka 版本为2.11
 
 # 启动zookeeper
-# 进入kafka的安装bin目录下执行命令  zookeeper-server-start.sh /usr/local/app/kafka/config/zookeeper.properties
+# 进入kafka的安装bin目录下执行命令  ./zookeeper-server-start.sh /usr/local/app/kafka/config/zookeeper.properties
 # 当提示：INFO binding to port 0.0.0.0/0.0.0.0:2181 (org.apache.zookeeper.server.NIOServerCnxnFactory)说明zk启动成功
 
 # 启动kafka
