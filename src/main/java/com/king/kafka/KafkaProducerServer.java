@@ -31,8 +31,7 @@ public class KafkaProducerServer {
      * @param partitionNum 分区数 如果是否使用分区为0,分区数必须大于0
      * @param role         角色:bbc app erp...
      */
-    public Map<String, Object> sendMesForTemplate(String topic, Object value, String ifPartition,
-                                                 Integer partitionNum, String role) {
+    public Map<String, Object> sendMesForTemplate(String topic, Object value, String ifPartition, Integer partitionNum, String role) {
         String key = role + "-" + value.hashCode();
         String valueString = JSON.toJSONString(value);
         if (ifPartition.equals("0")) {
@@ -44,9 +43,11 @@ public class KafkaProducerServer {
         } else {
             ListenableFuture<SendResult<String, String>> result = kafkaTemplate.send(topic, key, valueString);
             result.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
+                @Override
                 public void onFailure(Throwable throwable) {
-                    System.out.println("失败");
+                    logger.error("kafka发送数据失败，{}", throwable);
                 }
+                @Override
                 public void onSuccess(SendResult<String, String> integerStringSendResult) {
                     logger.info("==========kafka发送数据成功（日志开始）==========");
                     logger.info("----------topic:"+topic);
@@ -54,6 +55,7 @@ public class KafkaProducerServer {
                     logger.info("----------key:"+key);
                     logger.info("----------value:"+value);
                     logger.info("----------RecordMetadata:"+integerStringSendResult.getRecordMetadata().partition());
+                    logger.info("----------msg OK.", integerStringSendResult.toString());
                     logger.info("~~~~~~~~~~kafka发送数据成功（日志结束）~~~~~~~~~~");
                     System.out.println("成功");
                 }

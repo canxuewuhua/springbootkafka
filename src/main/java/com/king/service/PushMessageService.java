@@ -53,7 +53,6 @@ public class PushMessageService {
         HashMap<String, String> param = new HashMap<>();
         param.put("mess", mess);
         logger.info("push kafka message to " + role + " --> " + mess);
-        kafkaProducerServer.sendMesForTemplate(topic, mess, "1",
-                1, role);
+        kafkaProducerServer.sendMesForTemplate(topic, mess, "0", 1, role);
     }
 }
