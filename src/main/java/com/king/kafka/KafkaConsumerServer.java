@@ -17,7 +17,7 @@ public class KafkaConsumerServer {
 	 * id：消费者的id，当GroupId没有被配置的时候，默认id为GroupId
 	 * topics：需要监听的Topic，可监听多个
 	 */
-	@KafkaListener(id = "tianji", topics = "kafka20190528test")
+	@KafkaListener(id = "nanjing", topics = "kafka20210612test")
 	public void listen(ConsumerRecord<?, ?> record) {
 		log.info("消费者接收的record.key:", record.key());
 		log.info("消费者接收的record.value:", record.value());

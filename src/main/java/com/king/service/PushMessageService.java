@@ -18,7 +18,7 @@ public class PushMessageService {
 
     @Value("${kafka.test_topic}")
     private String topic;
-    private static String role = "tianji";
+    private static String role = "nanjing";
 
     @Autowired
     private KafkaProducerServer kafkaProducerServer;
